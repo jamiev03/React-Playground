@@ -11,27 +11,45 @@ class App extends Component {
   ]
 }
 
-switchNameHandler = () => {
+switchNameHandler = (newName) => {
   // console.log('Was clicked!');
   //DON'T DO THIS- this.state.persons[0].name = 'Jacob';
   this.setState( {
     persons: [
-      { name: 'Jamillion', age: 23},
+      { name: newName, age: 23},
       { name: 'Julia', age: 27},
       { name: 'Michelle', age: 20}
     ]
   })
 };
 
+nameChangedHandler = (event) => {
+  this.setState( {
+    persons: [
+      { name: 'Jamie', age: 32 },
+      { name: event.target.value, age: 27},
+      { name: 'Michelle', age: 20}
+    ]
+  })
+}
+
 render() {
   return (
         <div className="App">
           <h1>Hi, I'm a React App</h1>
           <p>This is really working.</p>
-          <button onClick={this.switchNameHandler}>Switch Name</button>
-          <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
-          <Person name={this.state.persons[1].name} age={this.state.persons[1].age} >My Hobbies: Racing</Person>
-          <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+          <button onClick={() => this.switchNameHandler('JAbroni')}>Switch Name</button>
+          <Person
+           name={this.state.persons[0].name} 
+           age={this.state.persons[0].age} />
+          <Person
+           name={this.state.persons[1].name} 
+           age={this.state.persons[1].age}
+           clicky={this.switchNameHandler.bind(this, 'JAcob')} 
+           inputChanged={this.nameChangedHandler}>My Hobbies: Racing</Person>
+          <Person
+           name={this.state.persons[2].name} 
+           age={this.state.persons[2].age}/>
         </div>
       );
       // Note this code below is what is actually run. Above looks like HTML but it is rendered into the code below. JSX.
