@@ -1,0 +1,17 @@
+.Vehicle {
+    background-color: #e7e7e7;
+    width: 60%;
+    margin: 26px auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(156, 156, 156, 0.3);
+    padding: 16px;
+    text-align: center;
+}
+
+input {
+    border: none;
+}
+
+span {
+    font-weight: bold;
+}

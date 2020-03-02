@@ -4,14 +4,14 @@
 import React from 'react';
 import './Vehicle.css'
 
-const vehicle = props => {
+const Vehicle = props => {
 return (
     <div className="Vehicle">
-        <p onClick={props.clicky}>I'm a {props.name} Person and I am {props.age} years old</p>
-        <p>{props.children}</p>
-        <input type="text" onChange={props.inputChanged} value={props.name} />
+        <p onClick={props.clicky}><span>Vehicle make:</span> {props.make} <span>Vehicle model:</span> {props.model}</p>
+        <p>Somethign about something is cool and somethings about the other things is cool too!</p>
+        <input type="text" onChange={props.inputChanged} value={props.make} />
     </div>
 )
 };
 
-export default vehicle;
+export default Vehicle;
