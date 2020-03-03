@@ -22,10 +22,12 @@ class App extends Component {
         <h2>Hello World</h2>
         <p>This is a testing app!</p>
 
-        <UserInput  updateName={this.updateNameHandler} />
+        <UserInput 
+         updateName={this.updateNameHandler}
+         currentName={this.state.username} />
         <UserOutput userName={this.state.username} />
         <UserOutput
-         userName="Bob" />
+         userName={this.state.username} />
         <UserOutput userName={this.state.coolname} />
 
       </div>
