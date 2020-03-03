@@ -4,8 +4,17 @@ import UserInput from './UserInput/UserInput';
 import UserOutput from './UserOutput/UserOutput';
 
 class App extends Component {
-  
+  state = {
+    username: 'Superman',
+    coolname: 'AJAX'
+  }
 
+  updateNameHandler = (event) => {
+    this.setState({
+      username: event.target.value
+    })
+  }
+  
   render() {
     return (
 
@@ -13,10 +22,11 @@ class App extends Component {
         <h2>Hello World</h2>
         <p>This is a testing app!</p>
 
-        <UserInput />
-        <UserOutput />
-        <UserOutput />
-        <UserOutput />
+        <UserInput  updateName={this.updateNameHandler} />
+        <UserOutput userName={this.state.username} />
+        <UserOutput
+         userName="Bob" />
+        <UserOutput userName={this.state.coolname} />
 
       </div>
     );
