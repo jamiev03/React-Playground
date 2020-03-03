@@ -7,7 +7,7 @@ import './Vehicle.css'
 const Vehicle = props => {
 return (
     <div className="Vehicle">
-        <p onClick={props.clicky}><span>Vehicle make:</span> {props.make} <span>Vehicle model:</span> {props.model}</p>
+        <p onClick={props.clicky}><span>Vehicle make:</span> {props.make} <span>Vehicle model:</span> {props.model} {props.thing}</p>
         <p>Somethign about something is cool and somethings about the other things is cool too!</p>
         <input type="text" onChange={props.inputChanged} value={props.make} />
     </div>
