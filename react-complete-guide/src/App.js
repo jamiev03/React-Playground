@@ -7,22 +7,11 @@ class App extends Component {
   persons: [
     { name: 'Jamie', age: 32},
     { name: 'Julia', age: 27},
-    { name: 'Michelle', age: 26}
+    { name: 'Michelle', age: 26},
+    { name: 'Heybo', age: 270}
   ],
   showPersons: false
 }
-
-switchNameHandler = (newName) => {
-  // console.log('Was clicked!');
-  //DON'T DO THIS- this.state.persons[0].name = 'Jacob';
-  this.setState( {
-    persons: [
-      { name: newName, age: 23},
-      { name: 'Julia', age: 27},
-      { name: 'Michelle', age: 20}
-    ]
-  })
-};
 
 nameChangedHandler = (event) => {
   this.setState( {
@@ -32,6 +21,13 @@ nameChangedHandler = (event) => {
       { name: 'Michelle', age: 20}
     ]
   })
+}
+
+deletePersonHandler = (personIndex) => {
+  // const persons = this.state.persons.slice();
+  const persons = [...this.state.persons];
+  persons.splice(personIndex, 1);
+  this.setState({persons: persons});
 }
 
 togglePersonHandler = () => {
@@ -53,17 +49,12 @@ render() {
   if (this.state.showPersons) {//boolean statement- is either true or false
     persons = (
       <div>
-          <Person
-            name={this.state.persons[0].name} 
-            age={this.state.persons[0].age} />
-          <Person
-            name={this.state.persons[1].name} 
-            age={this.state.persons[1].age}
-            clicky={this.switchNameHandler.bind(this, 'JAcob')} 
-            inputChanged={this.nameChangedHandler}>My Hobbies: Racing</Person>
-          <Person
-            name={this.state.persons[2].name} 
-            age={this.state.persons[2].age}/>
+        {this.state.persons.map((person, index) => {
+          return <Person 
+            clicky={() => this.deletePersonHandler(index)}
+            name={person.name}
+            age={person.age} />
+        })}
       </div> 
     )
   }
