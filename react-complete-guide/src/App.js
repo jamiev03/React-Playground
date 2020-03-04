@@ -35,7 +35,8 @@ nameChangedHandler = (event) => {
 }
 
 togglePersonHandler = () => {
-  this.
+  const doesShow = this.state.showPersons; //true or false statement
+  this.setState({showPersons: !doesShow});//toggler. If showPersons is false it equals true, and vice versa.
 }
 
 render() {
@@ -47,32 +48,38 @@ render() {
     cursor: 'pointer'
   };
 
+  let persons = null;
+
+  if (this.state.showPersons) {//boolean statement- is either true or false
+    persons = (
+      <div>
+          <Person
+            name={this.state.persons[0].name} 
+            age={this.state.persons[0].age} />
+          <Person
+            name={this.state.persons[1].name} 
+            age={this.state.persons[1].age}
+            clicky={this.switchNameHandler.bind(this, 'JAcob')} 
+            inputChanged={this.nameChangedHandler}>My Hobbies: Racing</Person>
+          <Person
+            name={this.state.persons[2].name} 
+            age={this.state.persons[2].age}/>
+      </div> 
+    )
+  }
+
   return (
-        <div className="App">
-          <h1>Hi, I'm a React App</h1>
-          <p>This is really working.</p>
-          <button
-           style={style}
-           onClick={this.togglePersonHandler('JAbroni')}>Switch Name</button>
+    <div className="App">
+      <h1>Hi, I'm a React App</h1>
+      <p>This is really working.</p>
+      <button
+       style={style}
+       onClick={this.togglePersonHandler}>Switch Name</button>
+       {persons}
 
-          { 
-            this.state.showPersons ? 
-              <div>
-                <Person
-                  name={this.state.persons[0].name} 
-                  age={this.state.persons[0].age} />
-                <Person
-                  name={this.state.persons[1].name} 
-                  age={this.state.persons[1].age}
-                  clicky={this.switchNameHandler.bind(this, 'JAcob')} 
-                  inputChanged={this.nameChangedHandler}>My Hobbies: Racing</Person>
-                <Person
-                  name={this.state.persons[2].name} 
-                  age={this.state.persons[2].age}/>
-            </div> : null
-          }
+        
 
-        </div>
+    </div>
       );
       // Note this code below is what is actually run. Above looks like HTML but it is rendered into the code below. JSX.
       // return React.createElement('div', {className: 'App'}, React.createElement('h1', null,'Does this work now??'))
