@@ -8,7 +8,8 @@ class App extends Component {
     { name: 'Jamie', age: 32},
     { name: 'Julia', age: 27},
     { name: 'Michelle', age: 26}
-  ]
+  ],
+  showPersons: false
 }
 
 switchNameHandler = (newName) => {
@@ -33,6 +34,10 @@ nameChangedHandler = (event) => {
   })
 }
 
+togglePersonHandler = () => {
+  this.
+}
+
 render() {
   const style = {
     backgroundColor: 'white',
@@ -48,18 +53,25 @@ render() {
           <p>This is really working.</p>
           <button
            style={style}
-           onClick={() => this.switchNameHandler('JAbroni')}>Switch Name</button>
-          <Person
-           name={this.state.persons[0].name} 
-           age={this.state.persons[0].age} />
-          <Person
-           name={this.state.persons[1].name} 
-           age={this.state.persons[1].age}
-           clicky={this.switchNameHandler.bind(this, 'JAcob')} 
-           inputChanged={this.nameChangedHandler}>My Hobbies: Racing</Person>
-          <Person
-           name={this.state.persons[2].name} 
-           age={this.state.persons[2].age}/>
+           onClick={this.togglePersonHandler('JAbroni')}>Switch Name</button>
+
+          { 
+            this.state.showPersons ? 
+              <div>
+                <Person
+                  name={this.state.persons[0].name} 
+                  age={this.state.persons[0].age} />
+                <Person
+                  name={this.state.persons[1].name} 
+                  age={this.state.persons[1].age}
+                  clicky={this.switchNameHandler.bind(this, 'JAcob')} 
+                  inputChanged={this.nameChangedHandler}>My Hobbies: Racing</Person>
+                <Person
+                  name={this.state.persons[2].name} 
+                  age={this.state.persons[2].age}/>
+            </div> : null
+          }
+
         </div>
       );
       // Note this code below is what is actually run. Above looks like HTML but it is rendered into the code below. JSX.
