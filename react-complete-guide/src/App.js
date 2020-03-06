@@ -18,14 +18,18 @@ nameChangedHandler = (event, id) => {
     return p.id === id;
   });
 
-  const person = this.state.persons[personIndex];
-  this.setState( {
-    persons: [
-      { name: 'Jamie', age: 32 },
-      { name: event.target.value, age: 27},
-      { name: 'Michelle', age: 20}
-    ]
-  })
+  const person = {
+    ...this.state.persons[personIndex]
+  };
+
+  person.name = event.target.value;
+
+  const persons = [...this.state.persons];
+  persons[personIndex] = person;
+
+
+
+  this.setState( {persons: persons} )
 }
 
 deletePersonHandler = (personIndex) => {

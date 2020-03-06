@@ -9,7 +9,7 @@ return (
     <div className="Person">
         <p onClick={props.clicky}>I'm {props.name} Person and I am {props.age} years old</p>
         <p>{props.children}</p>
-        <input type="text" onChange={props.inputChanged} value={props.name} />
+        <input type="text" onChange={props.changed} value={props.name} />
     </div>
 )
 };
