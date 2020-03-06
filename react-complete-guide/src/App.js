@@ -5,15 +5,20 @@ import Person from './Person/Person';
 class App extends Component {
   state = {
   persons: [
-    { name: 'Jamie', age: 32},
-    { name: 'Julia', age: 27},
-    { name: 'Michelle', age: 26},
-    { name: 'Heybo', age: 270}
+    { id: 'fasf', name: 'Jamie', age: 32},
+    { id: 'fgsdfasf', name: 'Julia', age: 27},
+    { id: 'fsfgasf', name: 'Michelle', age: 26},
+    { id: 'fasfgsf', name: 'Heybo', age: 270}
   ],
   showPersons: false
 }
 
-nameChangedHandler = (event) => {
+nameChangedHandler = (event, id) => {
+  const personIndex = this.state.persons.findIndex(p => {
+    return p.id === id;
+  });
+
+  const person = this.state.persons[personIndex];
   this.setState( {
     persons: [
       { name: 'Jamie', age: 32 },
@@ -53,7 +58,9 @@ render() {
           return <Person 
             clicky={() => this.deletePersonHandler(index)}
             name={person.name}
-            age={person.age} />
+            age={person.age}
+            key={person.id}
+            changed={(event) => this.nameChangedHandler(event, person.id)} />
         })}
       </div> 
     )
