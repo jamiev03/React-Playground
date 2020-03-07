@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField'; //import MUI components to be use
 import SelectField from 'material-ui/SelectField';//import MUI components to be used
 import MenuItem from 'material-ui/MenuItem';//import MUI components to be used
 import axios from 'axios'; //When we type we want to send a request to the API we use Axios for that. Could use fetch as well.
+import imageResults from '../image-results/ImageResults';
 
 class Search extends Component {
     state = { //defining state
@@ -11,7 +12,7 @@ class Search extends Component {
         apiUrl: 'https://pixabay.com/api',
         apiKey: '15488224-e9fc93a8e259296be52f01d1f',
         images: [] //is an empty array to begin with and once we make a request and get images to fill this array
-    }
+    };
 
     // onTextChange = (e) => { //as a parameter it takes the event.
     //     //set the searchText in state to the value in TextField.
@@ -48,6 +49,8 @@ class Search extends Component {
     });
   };
 
+  onAmountChange = (e, index, value) => this.setState({ amount: value} );
+
     render() {
         console.log(this.state.images);
         return (
@@ -72,6 +75,7 @@ class Search extends Component {
                 <MenuItem value={20} primaryText='20' />
                 </SelectField>
                 <br />
+                {this.state.images.length > 0 ? (<imageResults images={this.state.images} />) : null}
 
             </div>
         )
