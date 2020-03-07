@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField'; //import MUI components to be use
 import SelectField from 'material-ui/SelectField';//import MUI components to be used
 import MenuItem from 'material-ui/MenuItem';//import MUI components to be used
 import axios from 'axios'; //When we type we want to send a request to the API we use Axios for that. Could use fetch as well.
-import imageResults from '../image-results/ImageResults';
+import ImageResults from '../image-results/ImageResults';
 
 class Search extends Component {
     state = { //defining state
@@ -75,7 +75,7 @@ class Search extends Component {
                 <MenuItem value={20} primaryText='20' />
                 </SelectField>
                 <br />
-                {this.state.images.length > 0 ? (<imageResults images={this.state.images} />) : null}
+                {this.state.images.length > 0 ? (<ImageResults images={this.state.images} />) : null}
 
             </div>
         )
