@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TextField from 'material-ui/TextField'; //import MUI components to be used
 import SelectField from 'material-ui/SelectField';//import MUI components to be used
 import MenuItem from 'material-ui/MenuItem';//import MUI components to be used
-import axios from 'axios'; 
+import axios from 'axios'; //When we type we want to send a request to the API we use Axios for that. Could use fetch as well.
 
 class Search extends Component {
     state = { //defining state
@@ -15,15 +15,17 @@ class Search extends Component {
 
     onTextChange = (e) => { //as a parameter it takes the event.
         //set the searchText in state to the value in TextField.
-        //callback function 
+        //pass in a callback when the name changes to value-
         this.setState({[e.target.name]: e.target.value}, () => {
             //using axios to make a 'get' request
             axios.get(`${this.state.apiUrl}/?key=
             ${this.state.apiKey}&q=
             ${this.state.searchText}
             &image_type=photo&per_page
-            ${this.state.amount}&safesearch=true`)
-        }) 
+            ${this.state.amount}&safesearch=true`)//axios get request gives promise and now we need to access the 'hits' array from the JSON and insert it into the 'image' array- which is empty.
+            .then(res => this.setState({images: res.data.hits}))
+            .catch(err => console.log(err));//.catch logs error
+        });
     }
 
     render() {
