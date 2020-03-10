@@ -13,7 +13,7 @@ class App extends Component {
       {
         id: 2,
         title: 'Buy milk',
-        completed: false
+        completed: true
       },
       {
         id: 3,
@@ -24,7 +24,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.todos);
     return (
       <div className="App">
         <Todos todos={this.state.todos} />
