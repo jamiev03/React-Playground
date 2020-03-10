@@ -3,34 +3,35 @@ import PropTypes from 'prop-types';
 
 
 class TodoItem extends Component {
+    // styling using a function like so
     getStyle = () => {
-        if(this.props.todo.completed) {
-            return {
-                textDecoration: 'line-through',
-                fontWeight: '900'
-                
-            }
-        } else {
-            return {
-                textDecoration: 'none'
-            }
+        return {
+            background: '#f4f4f4',
+            padding: '10px',
+            borderBottom: '1px dotted #ccc',
+            textDecoration: this.props.todo.completed ?
+            'line-through' : 'none'
         }
     }
+
   render() {
       return (
         //   Can style using an inline style like so
           <div style={{ backgroundColor: '#eee'}}> 
-              <h2 style={itemStyle} >{ this.props.todo.title }</h2>
-              <h3 style={this.getStyle()}>Hi there! Just testing styles</h3>
+            <p>
+               <input type="checkbox" onChange={this.props.markComplete} /> {' '} 
+               { this.props.todo.title }
+            </p>
+              {/* <h2 style={itemStyle} ></h2> */}
           </div>
       )
   }
 }
 
 // Can style using a variable as well
-const itemStyle = {
-    color: 'orange'
-}
+// const itemStyle = {
+//     color: 'orange'
+// }
 
 
 // PropType
