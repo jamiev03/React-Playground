@@ -15,12 +15,14 @@ class TodoItem extends Component {
     }
 
   render() {
+      const { id, title } = this.props.todo; //Destructuring allows to pull data from this.props.todo
       return (
         //   Can style using an inline style like so
           <div style={{ backgroundColor: '#eee'}}> 
             <p>
-               <input type="checkbox" onChange={this.props.markComplete} /> {' '} 
-               { this.props.todo.title }
+                {/* We need to know which todo is checked off so we add bind to the 'id' since we have access to that prop */}
+               <input type="checkbox" onChange={this.props.markComplete.bind(this, id)} /> {' '} 
+               { title }
             </p>
               {/* <h2 style={itemStyle} ></h2> */}
           </div>

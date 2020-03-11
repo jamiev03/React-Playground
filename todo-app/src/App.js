@@ -23,8 +23,8 @@ class App extends Component {
     ]
   }
 
-  markComplete = (e) => {
-    console.log(this.props);
+  markComplete = (id) => {
+    console.log(id);
 }
 
   render() {
