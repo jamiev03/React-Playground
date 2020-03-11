@@ -13,7 +13,7 @@ class App extends Component {
       {
         id: 2,
         title: 'Buy milk',
-        completed: true
+        completed: false
       },
       {
         id: 3,
@@ -33,14 +33,21 @@ class App extends Component {
     }) })
 }
 
+  //Delete Todo- using the spread(...) operator to copy everything first, then filter through that list of todo and return only those that were not clicked based off of id reference.
+  deleteTodo = (id) => {
+    this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] });
+  }
+
   render() {
     return (
       <div className="App">
-        <Todos todos={this.state.todos} markComplete={this.markComplete} />
+        <Todos todos={this.state.todos} markComplete={this.markComplete} 
+        deleteTodo={this.deleteTodo}/>
       </div>
     );
   }
 }
+
 
 
 

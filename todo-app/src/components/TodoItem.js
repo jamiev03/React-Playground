@@ -20,10 +20,11 @@ class TodoItem extends Component {
         //   Can style using an inline style like so
           <div style={this.getStyle()}> 
             <p>
-                {/* We need to know which todo is checked off so we add bind to the 'id' since we have access to that prop */}
+                {/* We need to know which todo is checked off so we add bind to the 'id' since we have access to that prop thanks to the destructuring up top*/}
                <input type="checkbox" onChange={this.props.markComplete.bind(this, id)} /> {' '} 
                { title }
-               <button style={btnStyle}>X</button>
+               {/* Have to use bind again because it needs to know the id */}
+               <button onClick={this.props.deleteTodo.bind(this, id)} style={btnStyle}>X</button>
             </p>
               {/* <h2 style={itemStyle} ></h2> */}
           </div>
@@ -46,7 +47,7 @@ const btnStyle = {
     background: '#ff0000',
     color: '#fff',
     border: 'none',
-    padding: '5px 10px',
+    padding: '5px 9px',
     borderRadius: '4px',
     cursor: 'pointer',
     float: 'right'
