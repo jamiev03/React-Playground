@@ -3,7 +3,7 @@ import Todos from './components/Todos';
 import Header from './components/Header';
 import AddTodo from './components/AddTodo';
 import './App.css';
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'; //Random id generator
 
 class App extends Component {
   state = {
