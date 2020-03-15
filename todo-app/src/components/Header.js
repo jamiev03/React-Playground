@@ -15,7 +15,7 @@ const headerStyles = {
     color: 'white',
     textAlign: 'center',
     fontWeight: '900',
-    padding: '1rem'
+    padding: '2rem'
 }
 
 const linkStyles = {
