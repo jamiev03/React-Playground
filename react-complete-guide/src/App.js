@@ -42,6 +42,11 @@ togglePersonHandler = () => {
   this.setState({showPersons: !doesShow});//toggler. If showPersons is false it equals true, and vice versa.
 }
 
+readText = (e) => {
+  console.log(e.event.value);
+  return e.event.value
+}
+
 render() {
   const style = {
     backgroundColor: 'white',
@@ -76,6 +81,7 @@ render() {
        style={style}
        onClick={this.togglePersonHandler}>Toggle Persons</button>
        {persons}
+       <Input />
     </div>
       );
       // Note this code below is what is actually run. Above looks like HTML but it is rendered into the code below. JSX.
