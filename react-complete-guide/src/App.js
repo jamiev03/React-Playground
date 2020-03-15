@@ -7,8 +7,7 @@ class App extends Component {
   persons: [
     { id: 'fasf', name: 'Jamie', age: 32},
     { id: 'fgsdfasf', name: 'Julia', age: 27},
-    { id: 'fsfgasf', name: 'Michelle', age: 26},
-    { id: 'fasfgsf', name: 'Heybo', age: 270}
+    { id: 'fsfgasf', name: 'Michelle', age: 26}
   ],
   showPersons: false
 }
@@ -76,11 +75,8 @@ render() {
       <p>This is really working.</p>
       <button
        style={style}
-       onClick={this.togglePersonHandler}>Switch Name</button>
+       onClick={this.togglePersonHandler}>Toggle Persons</button>
        {persons}
-
-        
-
     </div>
       );
       // Note this code below is what is actually run. Above looks like HTML but it is rendered into the code below. JSX.
