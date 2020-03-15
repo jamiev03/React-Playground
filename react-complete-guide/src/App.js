@@ -42,11 +42,6 @@ togglePersonHandler = () => {
   this.setState({showPersons: !doesShow});//toggler. If showPersons is false it equals true, and vice versa.
 }
 
-readText = (e) => {
-  console.log(e.event.value);
-  return e.event.value
-}
-
 render() {
   const style = {
     backgroundColor: 'white',

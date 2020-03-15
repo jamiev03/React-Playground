@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Validation from './Validation';
 
 class Input extends Component {
     state = { //defining state
@@ -7,21 +8,16 @@ class Input extends Component {
 
     readText = e => {
         const val = e.target.value;
-        this.setState({ [e.target.name]: val }, () => {
-          if (val === '') {
-            this.setState({ images: [] });
-          } else {
-
-          }
-        });
+        this.setState({ [e.target.name]: val });
       };
     
     render() {
         return (
             <div>
                 <h1>Hi !!!! I am the Input :</h1>
-                <input onChange={this.readText} type="text" value={this.state.searchText} placeholder="Type HERE" />
-        <p></p>
+                <input name="searchText" onChange={this.readText} type="text" value={this.state.searchText} placeholder="Type HERE" />
+        
+        <Validation text={this.state.searchText.length}/>
                 
             </div> 
         )  
