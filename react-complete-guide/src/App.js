@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
+import Input from './Input/Input';
 
 class App extends Component {
   state = {
@@ -12,7 +13,7 @@ class App extends Component {
   showPersons: false
 }
 
-nameChangedHandler = (event, id) => {
+nameChangedHandler = ( event, id ) => {
   const personIndex = this.state.persons.findIndex(p => {
     return p.id === id;
   });
@@ -25,8 +26,6 @@ nameChangedHandler = (event, id) => {
 
   const persons = [...this.state.persons];
   persons[personIndex] = person;
-
-
 
   this.setState( {persons: persons} )
 }
