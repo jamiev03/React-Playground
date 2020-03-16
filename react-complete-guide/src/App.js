@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
-import Input from './Input/Input';
+
 
 class App extends Component {
   state = {
@@ -44,7 +44,8 @@ togglePersonHandler = () => {
 
 render() {
   const style = {
-    backgroundColor: 'white',
+    backgroundColor: 'green',
+    color: 'white',
     font: 'inherit',
     border: '1px solid blue',
     padding: '8px',
@@ -66,18 +67,32 @@ render() {
         })}
       </div> 
     )
+
+    style.backgroundColor = 'red'
+
+  }
+
+  let classes = [];
+  if (this.state.persons.length <= 2) {
+    classes.push('red'); //classes = ['red']
+  }
+  if (this.state.persons.length <= 1) {
+    classes.push('bold'); //classes = ['red', 'bold']
   }
 
   return (
     <div className="App">
       <h1>Hi, I'm a React App</h1>
-      <p>This is really working.</p>
+      {/* When it is an array we have to swtitch it to a string for JSX */}
+      <p className={classes.join(' ')}>This is really working.</p>
       <button
        style={style}
        onClick={this.togglePersonHandler}>Toggle Persons</button>
        {persons}
-       <Input />
     </div>
+
+
+
       );
       // Note this code below is what is actually run. Above looks like HTML but it is rendered into the code below. JSX.
       // return React.createElement('div', {className: 'App'}, React.createElement('h1', null,'Does this work now??'))
