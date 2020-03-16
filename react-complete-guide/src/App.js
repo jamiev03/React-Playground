@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Radium from 'radium';
 import Person from './Person/Person';
 
 
@@ -49,7 +50,11 @@ render() {
     font: 'inherit',
     border: '1px solid blue',
     padding: '8px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    ':hover': {
+      backgroundColor: 'lightgreen',
+      color: 'black'
+    }
   };
 
   let persons = null;
@@ -68,7 +73,11 @@ render() {
       </div> 
     )
 
-    style.backgroundColor = 'red'
+    style.backgroundColor = 'red';
+    style[':hover'] = {
+      backgroundColor: 'salmon',
+      color: 'black'
+    }
 
   }
 
@@ -83,7 +92,7 @@ render() {
   return (
     <div className="App">
       <h1>Hi, I'm a React App</h1>
-      {/* When it is an array we have to swtitch it to a string for JSX */}
+      {/* When it is an array we have to switch it to a string for JSX 'join() */}
       <p className={classes.join(' ')}>This is really working.</p>
       <button
        style={style}
@@ -137,4 +146,4 @@ render() {
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null,'Does this work now??'))
 //}
 
-export default App;
+export default Radium(App);//higher order component
