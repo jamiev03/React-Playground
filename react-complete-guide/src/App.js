@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Radium from 'radium';
+import Radium, { StyleRoot } from 'radium'; //StyleRoot required when using media queries with Radium
 import Person from './Person/Person';
 
 
@@ -90,15 +90,18 @@ render() {
   }
 
   return (
-    <div className="App">
-      <h1>Hi, I'm a React App</h1>
-      {/* When it is an array we have to switch it to a string for JSX 'join() */}
-      <p className={classes.join(' ')}>This is really working.</p>
-      <button
-       style={style}
-       onClick={this.togglePersonHandler}>Toggle Persons</button>
-       {persons}
-    </div>
+    // Have to wrap entire div in StyleRoot when using
+   <StyleRoot> 
+      <div className="App">
+        <h1>Hi, I'm a React App</h1>
+        {/* When it is an array we have to switch it to a string for JSX 'join() */}
+        <p className={classes.join(' ')}>This is really working.</p>
+        <button
+         style={style}
+         onClick={this.togglePersonHandler}>Toggle Persons</button>
+         {persons}
+      </div>
+   </StyleRoot>
 
 
 
