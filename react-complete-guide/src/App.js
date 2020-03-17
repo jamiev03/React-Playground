@@ -1,7 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
-import Radium, { StyleRoot } from 'radium'; //StyleRoot required when using media queries with Radium
 import Person from './Person/Person';
+import styled from 'styled-components';
+
+//import styled-components. In order to style the button we use tag template like so:
+//this makes the method styled.button`` a react component;
+//we use regular css with 'styled-components' it ends up in the head of the index.
+const StyledButton = styled.button`
+  background-color: green;
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: lightgreen;
+    color: black
+  }
+`;
 
 
 class App extends Component {
@@ -89,19 +106,16 @@ render() {
     classes.push('bold'); //classes = ['red', 'bold']
   }
 
-  return (
-    // Have to wrap entire div in StyleRoot when using
-   <StyleRoot> 
+  return ( 
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         {/* When it is an array we have to switch it to a string for JSX 'join() */}
         <p className={classes.join(' ')}>This is really working.</p>
-        <button
-         style={style}
-         onClick={this.togglePersonHandler}>Toggle Persons</button>
+         <StyledButton onClick={this.togglePersonHandler}>
+           Toggle Persons
+         </StyledButton>
          {persons}
       </div>
-   </StyleRoot>
 
 
 
@@ -149,4 +163,4 @@ render() {
     // return React.createElement('div', {className: 'App'}, React.createElement('h1', null,'Does this work now??'))
 //}
 
-export default Radium(App);//higher order component
+export default App;//higher order component
