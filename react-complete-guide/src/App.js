@@ -3,11 +3,11 @@ import './App.css';
 import Person from './Person/Person';
 import styled from 'styled-components';
 
-//import styled-components. In order to style the button we use tag template like so:
-//this makes the method styled.button`` a react component;
+//import styled-components. In order to style the button we use tag template like so: styled.button``, styled.div`` css goes between back-ticks
+//this makes the method styled.button`` a react component which we assign to a variable const.
 //we use regular css with 'styled-components' it ends up in the head of the index.
 const StyledButton = styled.button`
-  background-color: green;
+  background-color: ${props => props.alt ? 'red' : 'green'};
   color: white;
   font: inherit;
   border: 1px solid blue;
@@ -15,7 +15,7 @@ const StyledButton = styled.button`
   cursor: pointer;
   
   &:hover {
-    background-color: lightgreen;
+    background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
     color: black
   }
 `;
@@ -61,18 +61,18 @@ togglePersonHandler = () => {
 }
 
 render() {
-  const style = {
-    backgroundColor: 'green',
-    color: 'white',
-    font: 'inherit',
-    border: '1px solid blue',
-    padding: '8px',
-    cursor: 'pointer',
-    ':hover': {
-      backgroundColor: 'lightgreen',
-      color: 'black'
-    }
-  };
+  // const style = {
+  //   backgroundColor: 'green',
+  //   color: 'white',
+  //   font: 'inherit',
+  //   border: '1px solid blue',
+  //   padding: '8px',
+  //   cursor: 'pointer',
+  //   ':hover': {
+  //     backgroundColor: 'lightgreen',
+  //     color: 'black'
+  //   }
+  // };
 
   let persons = null;
 
@@ -90,11 +90,11 @@ render() {
       </div> 
     )
 
-    style.backgroundColor = 'red';
-    style[':hover'] = {
-      backgroundColor: 'salmon',
-      color: 'black'
-    }
+    // style.backgroundColor = 'red';
+    // style[':hover'] = {
+    //   backgroundColor: 'salmon',
+    //   color: 'black'
+    // }
 
   }
 
@@ -110,8 +110,9 @@ render() {
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         {/* When it is an array we have to switch it to a string for JSX 'join() */}
+        {/* Fowarding the state as an alt prop into StyledButton */}
         <p className={classes.join(' ')}>This is really working.</p>
-         <StyledButton onClick={this.togglePersonHandler}>
+         <StyledButton alt={this.state.showPersons} onClick={this.togglePersonHandler}>
            Toggle Persons
          </StyledButton>
          {persons}
