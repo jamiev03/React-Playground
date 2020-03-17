@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 //import styled-components. In order to style the button we use tag template like so: styled.button``, styled.div`` css goes between back-ticks
 //this makes the method styled.button`` a react component which we assign to a variable const.
 //we use regular css with 'styled-components' it ends up in the head of the index.
-const StyledButton = styled.button`
-  background-color: ${props => props.alt ? 'red' : 'green'};
-  color: white;
-  font: inherit;
-  border: 1px solid blue;
-  padding: 8px;
-  cursor: pointer;
+// const StyledButton = styled.button`
+  // background-color: ${props => props.alt ? 'red' : 'green'};
+  // color: white;
+  // font: inherit;
+  // border: 1px solid blue;
+  // padding: 8px;
+  // cursor: pointer;
   
-  &:hover {
-    background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
-    color: black
-  }
-`;
+  // &:hover {
+  //   background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
+  //   color: black
+  // }
+// `;
 
 
 class App extends Component {
@@ -110,11 +110,10 @@ render() {
       <div className="App">
         <h1>Hi, I'm a React App</h1>
         {/* When it is an array we have to switch it to a string for JSX 'join() */}
-        {/* Fowarding the state as an alt prop into StyledButton */}
         <p className={classes.join(' ')}>This is really working.</p>
-         <StyledButton alt={this.state.showPersons} onClick={this.togglePersonHandler}>
+         <button className='button' onClick={this.togglePersonHandler}>
            Toggle Persons
-         </StyledButton>
+         </button>
          {persons}
       </div>
 

@@ -10,4 +10,19 @@
   font-weight: bold;
 }
 
+.button {
+  background-color: green;
+  color: white;
+  font-style: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: lightgreen;
+  color: black;
+}
+
+
 
