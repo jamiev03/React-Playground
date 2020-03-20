@@ -7,6 +7,11 @@
   background-color: grey;
   width: 50%;
   height: 10rem;
+  border: 2px solid red;
+}
+
+div {
+  text-align: center;
 }
 
 button {
