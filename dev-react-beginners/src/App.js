@@ -1,15 +1,14 @@
 import React from 'react';
 import './App.css'
+import Tweet from './components/Tweet';
 
-const App = () => {
-  const sayHello = () => {
-    console.log('Hi there!');
-  };
 
+function App() {
   return (
-    <div>
-      <h1>Hello React</h1>
-      <button onClick={sayHello}>Click for Greeting!</button>
+    <div className='app'>
+      <Tweet />
+      <Tweet />
+      <Tweet />
     </div>
   )
 }
