@@ -2,6 +2,12 @@
   min-height: 100vh;
   background-image: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);}
 
+.header-title {
+  font-size: 2.5rem;
+  text-align: center;
+  padding: 2rem 0 1rem 0;
+}
+
 .search-form {
   min-height: 10vh;
   display: flex;
@@ -13,11 +19,16 @@
   width: 50%;
   border: none;
   padding: 10px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 .search-button {
-  background: green;
+  background: rgb(32, 143, 248);
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
   border: none;
+  font-weight: bold;
   padding: 10px 20px;
   color: white;
   cursor: pointer;
@@ -28,5 +39,6 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
+
 
 
