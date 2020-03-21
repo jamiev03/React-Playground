@@ -1,26 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css'
-import Tweet from './components/Tweet';
 
+const App = () => {
 
-function App() {
- const [isRed, setRed] = useState(false);
- const [count, setCount] = useState(0);
+  const APP_ID = '0OdUWJ0sBjDrqHygGUXeCF';
+  const APP_KEY = 'BQAIERWZe0pP14FXz58Yyv5UGSQ08MmrR-hB9Z0DI9Ubd24sTyryqMgFqhlhexGkZpymUJW3jsf7hV3p3HGUG3PT2gkdYf9Mj3ORiE6B596mPGEHgquM18fPkwQ7QmOMbc2CadeAHjydmibE2Bam7rx417iwaTg';
 
- const increment = () => {
-   setCount(count + 1);
- }
+  const exampleReq = `https://api.spotify.com/v1/artists/{${APP_ID}}`;
+
 
   return (
-    <div className='app'>
-      <button>Increment</button>
-      <h1>{count}</h1>
-      {/* <Tweet name="Jamie" message="Hi there this is cools!" likes="234" />
-      <Tweet name="Alfred" message="something smells..." likes="334" />
-      <Tweet name="Jody" message="Making cake is fun" likes="22134" />
-      <Tweet name="Susan" message="I like trees." likes="234" /> */}
-    </div>
-  )
+    <div className="App">Jo tere</div>
+  );
 }
 
 export default App;
