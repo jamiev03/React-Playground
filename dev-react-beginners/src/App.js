@@ -54,6 +54,7 @@ const App = () => {
         <button className="search-button" 
         type="submit">Search</button>
       </form>
+      <div className="recipes">
       {/* the data from recipes in an array and we can map over all the objects in the array.  */}
       {recipes.map(recipe => (
         <Recipe 
@@ -63,6 +64,7 @@ const App = () => {
         image={recipe.recipe.image}
         ingredients={recipe.recipe.ingredients} />
       ))}
+      </div>
     </div>
   );
 }
