@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css'
+import Recipe from './components/Recipe';
+
 
 const App = () => {
 
@@ -9,19 +11,20 @@ const App = () => {
   //setting state to equal whatever data is coming back from the API call. Which is in an array of objects form.
   const [recipes, setRecipes] = useState([]);
 
-  const exampleReq = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`;
+  const fetchSrc = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`;
 
-  const [counter, setCounter] = useState(0)
-
+  //Used to allow the getRecipes to only run once on load. Rather than loading each time the app is refreshed. The [] callback does this.
   useEffect(() => {
     getRecipes();
   }, [])
 
+  //API call to get recipes from src and setting the data to a .json format
   const getRecipes = async () => {
-    const response = await fetch(`https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`);
+    const response = await fetch(fetchSrc);
     const data = await response.json();
     //setRecipes to data.hits now all the recipes are in the state.
     setRecipes(data.hits);
+    console.log(data.hits);
 
   }
 
@@ -33,6 +36,10 @@ const App = () => {
         <button className="search-button" 
         type="submit">Search</button>
       </form>
+      {/* the data from recipes in an array and we can map over all the objects in the array. */}
+      {recipes.map(recipe => (
+        <Recipe />
+      ))}
     </div>
   );
 }
