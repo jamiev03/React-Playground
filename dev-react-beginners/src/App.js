@@ -3,24 +3,35 @@ import './App.css'
 
 const App = () => {
 
-  const APP_ID = '0OdUWJ0sBjDrqHygGUXeCF';
-  const APP_KEY = 'BQAIERWZe0pP14FXz58Yyv5UGSQ08MmrR-hB9Z0DI9Ubd24sTyryqMgFqhlhexGkZpymUJW3jsf7hV3p3HGUG3PT2gkdYf9Mj3ORiE6B596mPGEHgquM18fPkwQ7QmOMbc2CadeAHjydmibE2Bam7rx417iwaTg';
+  const APP_ID = '6e228a6b';
+  const APP_KEY = 'd68ee4924f434889cfa7e5b97d70c97e';
 
-  const exampleReq = `https://api.spotify.com/v1/artists/0OdUWJ0sBjDrqHygGUXeCF" -H "Authorization: Bearer {${APP_KEY}}`;
+  //setting state to equal whatever data is coming back from the API call. Which is in an array of objects form.
+  const [recipes, setRecipes] = useState([]);
+
+  const exampleReq = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`;
 
   const [counter, setCounter] = useState(0)
 
   useEffect(() => {
-    console.log('Effect has been run');
-  })
+    getRecipes();
+  }, [])
+
+  const getRecipes = async () => {
+    const response = await fetch(`https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`);
+    const data = await response.json();
+    //setRecipes to data.hits now all the recipes are in the state.
+    setRecipes(data.hits);
+
+  }
 
 
   return (
     <div className="App">
       <form className="search-form">
         <input className="search-bar" type="text"/>
-        <button onClick={() => setCounter(counter + 1)}className="search-button" 
-        type="submit">{counter}</button>
+        <button className="search-button" 
+        type="submit">Search</button>
       </form>
     </div>
   );
