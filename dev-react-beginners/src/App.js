@@ -22,7 +22,7 @@ const App = () => {
   //Used to allow the getRecipes to only run once on load. Rather than loading each time the app is refreshed. The [] callback does this.
   useEffect(() => {
     getRecipes();
-  }, [])
+  }, [query])
 
   //API call to get recipes from src and setting the data to a .json format
   const getRecipes = async () => {
@@ -42,8 +42,8 @@ const App = () => {
   //Add function to the form on submit. Prevent default behavior of page submit/refresh using e.preventDefault(). Then setQuery to the value of the search field.
   const getSearch = event => {
     event.preventDefault();
-    setQuery(search)
-
+    setQuery(search);
+    setSearch('');
   }
 
 
@@ -60,7 +60,8 @@ const App = () => {
         key={recipe.recipe.label}
         title={recipe.recipe.label} 
         calories={recipe.recipe.calories}
-        image={recipe.recipe.image} />
+        image={recipe.recipe.image}
+        ingredients={recipe.recipe.ingredients} />
       ))}
     </div>
   );
