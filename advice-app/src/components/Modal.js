@@ -5,7 +5,7 @@ const Modal = ( props ) => {
         <div className='modal'>
         <h3>{props.text}</h3>
         <button className="button">
-            <span>GIVE ME ADVICE</span>
+            <span>Please Advise</span>
         </button>
 
         </div>

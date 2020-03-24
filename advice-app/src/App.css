@@ -2,17 +2,27 @@
   text-align: center;
 }
 
+.header {
+  text-align: center;
+  padding-top: 8rem;
+  font-size: 3rem;
+  color: white;
+}
+
 .modal {
   position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(50%, 50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 50%;
-  height: 400px;
+  height: 300px;
   background-color: white;
   border-radius: 8px;
-  box-shadow: 0px 0px 25px rgba(71, 71, 0, .5);
-  text-align: center;
+  box-shadow: 0px 0px 25px rgba(31, 31, 31, 0.8);
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
 }
 
 h3 {
@@ -22,8 +32,33 @@ h3 {
 
 .button {
   padding: 1rem 2.5rem;
-  border: 1px solid #1c1c1c;
-  background-color: rgb(0, 189, 126);
+  background-color: rgba(60, 138, 255, 0.3);
   border-radius: 30px;
+  border: none;
   cursor: pointer;
 }
+
+.button:hover {
+  animation: shake 0.2s;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@media screen and (max-width: 600px) {
+  .modal {
+    width: 80%;
+  }
+}
+
