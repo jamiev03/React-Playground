@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Modal from './components/Modal';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hi There!</h1>
+class App extends Component {
+  state = { advice: '' };
+
+  componentDidMount() {
+    console.log('Component did mount');
+
+  }
+
+
+  render() {
+    return (
+      
       <Modal />
-    </div>
-  );
+    )
+  }
 }
 
 export default App;
