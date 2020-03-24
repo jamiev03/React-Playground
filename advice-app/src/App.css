@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(50%, 50%);
+  width: 50%;
+  height: 400px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 0px 25px rgba(71, 71, 0, .5);
+}
