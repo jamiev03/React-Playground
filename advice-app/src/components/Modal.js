@@ -3,7 +3,11 @@ import React from 'react';
 const Modal = ( props ) => {
     return (
         <div className='modal'>
-        <h1>this is a modal</h1>
+        <h3>{props.text}</h3>
+        <button className="button">
+            <span>GIVE ME ADVICE</span>
+        </button>
+
         </div>
     )
 }

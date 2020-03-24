@@ -33,8 +33,7 @@ class App extends Component {
 
     return (
       <div>
-        <h1>{advice}</h1>
-        <Modal />
+        <Modal text={advice} />
       </div>
       
     )

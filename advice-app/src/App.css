@@ -12,4 +12,18 @@
   background-color: white;
   border-radius: 8px;
   box-shadow: 0px 0px 25px rgba(71, 71, 0, .5);
+  text-align: center;
+}
+
+h3 {
+  font-weight: 400;
+  padding: 2.5rem;
+}
+
+.button {
+  padding: 1rem 2.5rem;
+  border: 1px solid #1c1c1c;
+  background-color: rgb(0, 189, 126);
+  border-radius: 30px;
+  cursor: pointer;
 }
