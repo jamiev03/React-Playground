@@ -58,7 +58,10 @@ h3 {
 
 @media screen and (max-width: 600px) {
   .modal {
-    width: 80%;
+    width: 85%;
+  }
+  .header {
+    font-size: 2.5rem;
   }
 }
 

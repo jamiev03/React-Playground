@@ -29,6 +29,11 @@ class App extends Component {
     })
   }
 
+  //newAdvice method
+  newAdvice = () => {
+    this.getAdvice();
+  }
+
   render() {
     //deconstruct advice from this.state, pass on to Modal as props.
     const { advice } = this.state;
@@ -36,7 +41,7 @@ class App extends Component {
     return (
       <div>
         <h1 className="header">Need some Advice?</h1>
-        <Modal text={advice} />
+        <Modal text={advice} change={this.newAdvice} />
       </div>
       
     )
