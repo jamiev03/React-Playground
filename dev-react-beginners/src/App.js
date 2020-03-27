@@ -9,7 +9,7 @@ const App = () => {
   const APP_KEY = 'd68ee4924f434889cfa7e5b97d70c97e';
   // const fetchSrc = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`;
 
-  //setting state to equal whatever data is coming back from the API call. Which is in an array of objects form useState([]).
+  //setting state to equal whatever data is coming back from the API call. Which is an an array of objects form useState([]).
   const [recipes, setRecipes] = useState([]);
 
   //set state for search as an empty string and apply that as value to the input tag.
@@ -29,6 +29,7 @@ const App = () => {
     const data = await response.json();
     //setRecipes to data.hits now all the recipe data are in the state.
     setRecipes(data.hits);
+    console.log(data.hits);
   }
 
   //updateSearch function. We get an event from this every time the onChange is initiated. Then we setSearch to the event value aka the input value.
@@ -41,6 +42,8 @@ const App = () => {
     event.preventDefault();
     setQuery(search);
     setSearch('');
+
+    
   }
 
   return (
@@ -54,7 +57,8 @@ const App = () => {
       </form>
       <div className="recipes">
       {/* the data from recipes in an array and we can map over all the objects in the array.  */}
-      {recipes.map(recipe => (
+      
+      {recipes.map(recipe  => (
         <Recipe 
         key={recipe.recipe.label}
         title={recipe.recipe.label} 

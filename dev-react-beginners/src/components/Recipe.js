@@ -1,7 +1,7 @@
 import React from 'react';
 import style from '../modules/recipe.module.css'
 
-const Recipe = ( {title, calories, image, ingredients, source } ) => {
+const Recipe = ( {title, calories, image, ingredients } ) => {
     let id = 0;
     return (
         <div className={style.recipe}>
