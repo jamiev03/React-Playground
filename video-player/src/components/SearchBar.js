@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import { Paper, TextField } from '@material-ui/core';
+import style from '../modules/SearchBar.module.css';
 
 class SearchBar extends Component {
     render() {
         return (
-            <div>
-                <h1>This is the SEARCH BAR</h1>
-            </div>
+            <Paper className={style.paper} elevation={3}>
+                <form>
+                    <TextField fullWidth label='Search...'></TextField>
+                </form>
+            </Paper>
         )
     }
 }

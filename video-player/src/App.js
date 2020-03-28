@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Grid } from '@material-ui/core';
 import youtube from './api/youtube';
-import SearchBar from './components/SearchBar'
-import VideoList from './components/VideoList';
-import VideoDetails from './components/VideoDetails';
+import { SearchBar, VideoDetails } from './components';
 
 class App extends Component {
     render() {
