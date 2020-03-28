@@ -10,7 +10,7 @@ class App extends Component {
                 <Grid item xs={12}>
                     <Grid container spacing={16}>
                         <Grid item xs={12}>
-                            <SearchBar />
+                            <SearchBar onFormSubmit={this.handleSubmit} />
                         </Grid>
                         <Grid item xs={8}>
                             <VideoDetails />
