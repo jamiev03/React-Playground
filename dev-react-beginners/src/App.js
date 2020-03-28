@@ -57,7 +57,6 @@ const App = () => {
       </form>
       <div className="recipes">
       {/* the data from recipes in an array and we can map over all the objects in the array.  */}
-      
       {recipes.map(recipe  => (
         <Recipe 
         key={recipe.recipe.label}
