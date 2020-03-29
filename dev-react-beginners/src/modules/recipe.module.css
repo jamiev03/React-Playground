@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background: white;
+    background: rgb(247, 247, 247);
     font-family: 'Roboto';
     color: rgb(48, 48, 48);
 }
@@ -22,7 +22,7 @@
     
 }
 .list {
-    padding: 2rem;
+    padding: 2.2rem;
     text-align: left;
     max-width: 85%;
 }

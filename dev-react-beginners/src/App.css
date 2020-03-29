@@ -4,12 +4,13 @@
   background-size: contain;
   background-position: top center;
   background-repeat: no-repeat;
+  background-color: #f0f1f6
 }
 .header-title {
-  font-size: 3.6rem;
+  font-size: 3.8rem;
   color: rgb(48, 48, 48);
   text-align: center;
-  padding: 2rem 0 1rem 0;
+  padding: 4.5rem 0 2rem 0;
   font-family: 'Pacifico', cursive;
 }
 
@@ -26,6 +27,7 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 4rem;
   }
 
 .search-bar {
@@ -51,6 +53,10 @@ h3 {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.checked {
+  color: orange;
 }
 
 
