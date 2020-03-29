@@ -11,10 +11,12 @@ const VideoDetails = ({ video }) => {
     return (
         <React.Fragment>
             <Paper elevation={6} className={VideoDetailsStyle.paper}>
-                <iframe frameBorder='0' height='100%' title='video Player' src='...'></iframe>
+                <iframe frameBorder='0' height='100%' title='video Player' src={videoSrc}></iframe>
             </Paper>
             <Paper elevation={6} className={VideoDetailsStyle.paper2}>
-                
+                <Typography variant="h4">{video.snippet.title} - {video.snippet.channelTitle}</Typography>
+                <Typography variant="subtitle1">{video.snippet.channelTitle}</Typography>
+                <Typography variant="subtitle2">{video.snippet.description}</Typography>
             </Paper>
         </React.Fragment>
     )
