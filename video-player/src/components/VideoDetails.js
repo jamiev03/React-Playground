@@ -7,11 +7,11 @@ const VideoDetails = ({ video }) => {
 
     console.log(video.id.videoId);
 
-    const videoSrc = `https://www.youtube.come/embed/${video.id.videoId}`
+    const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`
     return (
         <React.Fragment>
             <Paper elevation={6} className={VideoDetailsStyle.paper}>
-                <iframe frameBorder='0' height='100%' title='video Player' src={videoSrc}></iframe>
+                <iframe frameBorder='0' width="100%" height='100%' title='video Player' src={videoSrc}></iframe>
             </Paper>
             <Paper elevation={6} className={VideoDetailsStyle.paper2}>
                 <Typography variant="h4">{video.snippet.title} - {video.snippet.channelTitle}</Typography>

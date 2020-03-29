@@ -12,11 +12,13 @@ class SearchBar extends Component {
         this.setState({ searchTerm: event.target.value })
     }
 
-    handleSubmit = () => {
+    handleSubmit = (event) => {
         const { searchTerm } = this.state;
         const { onFormSubmit } = this.props;
 
         onFormSubmit(searchTerm);
+
+        event.preventDefault();
 
     }
 
@@ -24,7 +26,7 @@ class SearchBar extends Component {
         return (
             <Paper className={style.paper} elevation={3}>
                 <form onSubmit={this.handleSubmit}>
-                    <TextField fullWidth label='Search...' onChange={this.handleChange} />
+                    <TextField fullWidth color="primary" label='Search...' onChange={this.handleChange} />
                 </form>
             </Paper>
         )
