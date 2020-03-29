@@ -1,7 +1,10 @@
 .App {
   min-height: 100vh;
-  background-image: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);}
-
+  background-image: url(./images/food-on-white-background-256318.jpg);
+  background-size: contain;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
 .header-title {
   font-size: 2.5rem;
   text-align: center;
