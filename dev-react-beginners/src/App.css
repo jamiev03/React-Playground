@@ -6,13 +6,19 @@
   background-repeat: no-repeat;
 }
 .header-title {
-  font-size: 2.5rem;
+  font-size: 3.6rem;
+  color: rgb(48, 48, 48);
   text-align: center;
   padding: 2rem 0 1rem 0;
+  font-family: 'Pacifico', cursive;
 }
 
 h3 {
   text-align: center;
+  font-family: 'Roboto';
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1rem;
 }
 
 .search-form {
