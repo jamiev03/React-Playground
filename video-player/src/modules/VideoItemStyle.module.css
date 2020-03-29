@@ -1,0 +1,12 @@
+.paper {
+    display: flex;
+    align-items: center;
+}
+
+.img {
+    margin-right: 20px;
+}
+
+.subtitle {
+    font-weight: bold;
+}
