@@ -8,12 +8,16 @@ class SearchBar extends Component {
     }
 
     handleChange = (event) => {
+        //this. Is referring to the class component because in an arrow function method there is no 'this'
         this.setState({ searchTerm: event.target.value })
     }
 
     handleSubmit = () => {
         const { searchTerm } = this.state;
         const { onFormSubmit } = this.props;
+
+        onFormSubmit(searchTerm);
+
     }
 
     render() {
