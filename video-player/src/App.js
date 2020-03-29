@@ -27,7 +27,7 @@ class App extends Component {
 }
 
     render() {
-        const { selectedVideo } = this.state;
+        const { selectedVideo, videos } = this.state;
         return (
             <Grid justify='center' container spacing={10}>
                 <Grid item xs={12}>
@@ -39,7 +39,7 @@ class App extends Component {
                             <VideoDetails video={selectedVideo} />
                         </Grid>
                         <Grid item xs={4}>
-                            {/* VIDEO LIST */}
+                            <VideoList videos={videos}/>
                         </Grid>
                     </Grid>
                 </Grid>
