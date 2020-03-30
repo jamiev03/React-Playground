@@ -25,7 +25,7 @@ class App extends Component {
             params: {
             part: 'snippet',
             maxResults: 5,
-            key: 'API-KEY',
+            key: 'api-key',
             q: searchTerm,
     }
     });
@@ -37,7 +37,7 @@ class App extends Component {
     render() {
         const { selectedVideo, videos } = this.state;
         return (
-            <Grid justify='center' container spacing={10}>
+            <Grid justify='center' container spacing={8}>
                 <Grid item xs={12}>
                     <Grid container spacing={10}>
                         <Grid item xs={12}>
