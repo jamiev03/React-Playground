@@ -1,8 +1,19 @@
-import React from 'react';
+import React , { useEffect } from 'react';
 
 import classes from './Cockpit.css';
 
 const cockpit = (props) => {
+    useEffect(() => {
+      console.log('[Cockpit.js], useEffect');
+      //Http req...
+      setTimeout(() => {
+        alert('fetched Data!')
+      }, 1000);
+      return () => {
+        console.log('[Cockpit.js] cleanup work in useEffect');
+      }
+    }, []);//An array of all the variables or data that are used in the useEffect. IE. if we know we only want to run this code when the persons changes include props.persons in the array. An empty array cause useEffect to only run once.
+
     const assignedClasses = [];
     let btnClass = '';
     
