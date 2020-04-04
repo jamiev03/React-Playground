@@ -18,6 +18,7 @@ class Persons extends Component {
     return { message: 'Snapshot!'};
   }
 
+  //runs after the render has occurred.
   componentDidUpdate(prevProps, persons, snapshot) {
     console.log('[Persons.js] componentDidUpdate');
     console.log(snapshot);
