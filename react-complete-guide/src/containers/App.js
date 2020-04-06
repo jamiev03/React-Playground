@@ -4,6 +4,7 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 import withClass from '../HOC/withClass';
 import Auxillary from '../HOC/Auxillary';
+import AuthContext from '../context/auth-context';
 
 
 class App extends Component {
@@ -20,7 +21,8 @@ class App extends Component {
     ],
     otherState: 'some other value',
     showPersons: false,
-    showCockpit: true
+    showCockpit: true,
+    authenticated: false
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -72,6 +74,10 @@ class App extends Component {
     this.setState({ showPersons: !doesShow });
   };
 
+  loginHandler = () => {
+    this.setState({ authenticated: true } )
+  }
+
   render() {
     console.log('[App.js], render');
     let persons = null;
@@ -80,7 +86,8 @@ class App extends Component {
       persons = <Persons 
             persons={this.state.persons}
             clicked={this.deletePersonHandler}
-            changed={this.nameChangedHandler} />
+            changed={this.nameChangedHandler} 
+            inAuthenticated={this.state.autheticated} />
     }
 
     return (
@@ -89,10 +96,12 @@ class App extends Component {
           this.setState({ showCockpit: false });
         }}>Remove Cockpit</button>
 
-        {this.state.showCockpit ? <Cockpit 
+        {this.state.showCockpit ? 
+        <Cockpit 
           title={this.props.appTitle}
           showPersons={this.state.showPersons}
           persons={this.state.persons} 
+          login={this.loginHandler}
           clicked={this.togglePersonsHandler} /> : null}
         {persons}
         </Auxillary>

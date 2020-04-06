@@ -19,7 +19,7 @@ class Person extends Component {
     return (
       //Auxillary allows for adjacent elements with a DOM element like <div> Note can also use the new version of React.Fragment which is now built in.
       <Auxillary>
-      
+        {this.props.isAuth ? <p>Authenticated!</p> : <p>Please log in</p>}
         <p onClick={this.props.click}>
           I'm {this.props.name} and I am {this.props.age} years old!
         </p>
@@ -29,6 +29,7 @@ class Person extends Component {
         onChange={this.props.changed} 
         value={this.props.name} 
         ref={this.inputElementRef} 
+        
         />
       
       </Auxillary>
