@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BurgerIngredients from '../BurgerIngredients/BurgerIngredients.module.css';
+import BurgerIngredientsStyles from '../BurgerIngredients/BurgerIngredients.module.css';
 import PropTypes from 'prop-types';
 
 class BurgerIngredients extends Component {
@@ -9,27 +9,27 @@ class BurgerIngredients extends Component {
 
         switch ( this.props.type ) {
             case ('bread-bottom'):
-                ingredient = <div className={BurgerIngredients.BreadBottom}></div>
+                ingredient = <div className={BurgerIngredientsStyles.BreadBottom}></div>
                 break;
             case ('bread-top'):
                 ingredient = (
-                    <div className={BurgerIngredients.BreadTop}>
-                        <div className={BurgerIngredients.Seeds1}></div>
-                        <div className={BurgerIngredients.Seeds2}></div>
+                    <div className={BurgerIngredientsStyles.BreadTop}>
+                        <div className={BurgerIngredientsStyles.Seeds1}></div>
+                        <div className={BurgerIngredientsStyles.Seeds2}></div>
                     </div>
                 );
                 break;
             case ('meat'):
-                ingredient = <div className={BurgerIngredients.Meat}></div>;
+                ingredient = <div className={BurgerIngredientsStyles.Meat}></div>;
                 break;
             case ('cheese'):
-                ingredient = <div className={BurgerIngredients.Cheese}></div>;
+                ingredient = <div className={BurgerIngredientsStyles.Cheese}></div>;
                 break;
             case ('bacon'):
-                ingredient = <div className={BurgerIngredients.Bacon}></div>;
+                ingredient = <div className={BurgerIngredientsStyles.Bacon}></div>;
                 break;
             case ('salad'):
-                ingredient = <div className={BurgerIngredients.Salad}></div>;
+                ingredient = <div className={BurgerIngredientsStyles.Salad}></div>;
                 break;
             default: 
                 ingredient = null;
@@ -39,7 +39,7 @@ class BurgerIngredients extends Component {
     }
 };
 
-BurgerIngredients.PropTypes = {
+BurgerIngredients.propTypes = {
     type: PropTypes.string.isRequired
 };
 
