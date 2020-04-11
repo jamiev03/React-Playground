@@ -17,7 +17,6 @@ import BurgerIngredients from './BurgerIngredients/BurgerIngredients';
                 transformedIngredients = <p>Please start adding ingredients!</p>
             }
 
-            console.log(transformedIngredients);
     return (
         <div className={BurgerStyles.Burger}>
             <BurgerIngredients type="bread-top" />
