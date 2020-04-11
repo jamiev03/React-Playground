@@ -12,7 +12,10 @@ import BurgerIngredients from './BurgerIngredients/BurgerIngredients';
             })
             .reduce((arr, el) => {
                 return arr.concat(el)
-            }, [])
+            }, []);
+            if (transformedIngredients.length === 0) {
+                transformedIngredients = <p>Please start adding ingredients!</p>
+            }
 
             console.log(transformedIngredients);
     return (
