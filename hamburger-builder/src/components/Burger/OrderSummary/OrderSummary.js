@@ -1,12 +1,12 @@
 import React from 'react';
 import Auxillary from '../../../hoc/Auxillary';
 
-const orderSummary = (props) => {
-    const ingredientSummary = Object.keys(props.ingredients);
+const orderSummary = ({ ingredients }) => {
+    const ingredientSummary = Object.keys(ingredients)
         .map(igKey => {
             return (
-            <li>
-                <span style={{textTransform: 'capitalize'}}>{igKey}</span>: {props.ingredients[igKey]}
+            <li key={igKey}>
+                <span style={{textTransform: 'capitalize'}}>{igKey}</span>: {ingredients[igKey]}
             </li>
         )
         })
@@ -15,8 +15,9 @@ const orderSummary = (props) => {
            <h3>Your Order</h3>
            <p>A bespoke burger with the following ingredients:</p>
            <ul>
-
+               {ingredientSummary}
            </ul>
+           <p>Confirm Order?</p>
        </Auxillary> 
     )
 };
