@@ -1,12 +1,13 @@
 import React from 'react';
 import Auxillary from '../../../hoc/Auxillary';
+import Button from '../../UI/Modal/Button/Button';
 
-const orderSummary = ({ ingredients }) => {
-    const ingredientSummary = Object.keys(ingredients)
+const orderSummary = (props) => {
+    const ingredientSummary = Object.keys(props.ingredients)
         .map(igKey => {
             return (
             <li key={igKey}>
-                <span style={{textTransform: 'capitalize'}}>{igKey}</span>: {ingredients[igKey]}
+                <span style={{textTransform: 'capitalize'}}>{igKey}</span>: {props.ingredients[igKey]}
             </li>
         )
         })
@@ -18,6 +19,8 @@ const orderSummary = ({ ingredients }) => {
                {ingredientSummary}
            </ul>
            <p>Proceed to Checkout?</p>
+           <Button btnType='Danger' clicked={props.purchaseCancelled}>Cancel</Button>
+           <Button btnType='Success' clicked={props.purchaseContinued}>Order Now</Button>
        </Auxillary> 
     )
 };
