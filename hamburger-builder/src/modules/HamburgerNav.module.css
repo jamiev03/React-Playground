@@ -1,0 +1,30 @@
+.HamburgerNav {
+    margin-top: 1.4rem;
+    width: 11%;
+    height: 50px;
+    cursor: pointer;
+}
+
+.top {
+    width: 90%;
+    height: 4px;
+    background-color: white;
+    border-radius: 20px;
+    margin-bottom: 8px;
+}
+
+.middle {
+    width: 80%;
+    height: 4px;
+    background-color: white;
+    border-radius: 20px;
+    margin-bottom: 8px;
+}
+
+.bottom {
+    width: 90%;
+    height: 4px;
+    background-color: white;
+    border-radius: 20px;
+
+}
