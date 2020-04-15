@@ -1,10 +1,9 @@
 .NavigationItems {
-    margin: 0;
+    margin: 10px 0;
     padding: 0;
     list-style: none;
-    display: flex;
-    align-items: center;
-    height: 100%;
+    display: block;
+    width: 100%;
 }
 
 .NavigationItem {
@@ -16,11 +15,9 @@
 }
 
 .NavigationItem a {
-    color: white;
+    color: #8f5c2c;
     text-decoration: none;
-    height: 100%;
-    padding: 16px 10px;
-    border-bottom: 4px solid transparent;
+    width: 100%;
     box-sizing: border-box;
     display: block;
 }
@@ -28,7 +25,42 @@
 .NavigationItem a:hover,
 .NavigationItem a:active,
 .NavigationItem a.active:hover {
-    background-color: #8f5c2c;
-    border-bottom: 4px solid #40A4CB;
-    color: white;
+    color: #40A4CB;
+}
+
+@media (min-width: 500px) {
+    .NavigationItems {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        width: auto;
+    }
+    
+    .NavigationItem {
+        margin: 0;
+        box-sizing: border-box;
+        display: flex;
+        height: 100%;
+        align-items: center;
+    }
+    
+    .NavigationItem a {
+        color: white;
+        text-decoration: none;
+        height: 100%;
+        padding: 16px 10px;
+        border-bottom: 4px solid transparent;
+        box-sizing: border-box;
+        display: block;
+    }
+    
+    .NavigationItem a:hover,
+    .NavigationItem a:active,
+    .NavigationItem a.active:hover {
+        background-color: #8f5c2c;
+        border-bottom: 4px solid #40A4CB;
+        color: white;
+    }
 }
