@@ -6,7 +6,7 @@ import HamburgerNav from '../../Navigation/HamburgerNav/HamburgerNav';
 
 const toolbar = (props) => (
     <header className={classes.Toolbar}>
-        <HamburgerNav />
+        <HamburgerNav clicked={props.drawerToggleClicked}/>
         <div className={classes.Logo}><Logo /></div>
         <nav className={classes.DesktopOnly}>
             <NavigationItems />
