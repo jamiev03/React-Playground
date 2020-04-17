@@ -28,3 +28,9 @@
     border-radius: 20px;
 
 }
+
+@media (min-width: 500px) {
+    .HamburgerNav {
+        display: none;
+    }
+}
