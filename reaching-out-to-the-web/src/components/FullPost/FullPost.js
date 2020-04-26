@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
 
 import './FullPost.css';
 
 class FullPost extends Component {
+    componentDidUpdate() {
+        if (this.props.id) {
+            Axios.get('https://jsonplaceholder.typicode.com/posts/' + this.props.id)
+            .then(response => {
+                console.log(response);
+            });
+        }
+    }
     render () {
-        let post = <p>Please select a Post!</p>;
+        let post = <p style={{textAlign: 'center'}}>Please select a Post!</p>;
+        if (this.props.id) {
         post = (
             <div className="FullPost">
                 <h1>Title</h1>
@@ -15,6 +25,7 @@ class FullPost extends Component {
             </div>
 
         );
+    }
         return post;
     }
 }
