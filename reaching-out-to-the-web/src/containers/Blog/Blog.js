@@ -8,17 +8,35 @@ import post from '../../components/Post/Post';
 
 class Blog extends Component {
     state = {
-        posts: []
+        posts: [],
+        selectedPostId: null
     }
     componentDidMount() {
         Axios.get('https://jsonplaceholder.typicode.com/posts')
         .then(response => {
-            this.setState({posts: response.data})
+            const posts = response.data.slice(0, 4);
+            console.log(posts);
+            const updatedPosts = posts.map(post => {
+                return {
+                    ...post,
+                    author: 'Jamie'
+                }
+            })
+            this.setState({posts: updatedPosts})
         });
     }
+
+    postClicked = (id) => {
+        this.setState({selectedPostId: id})
+    }
+
     render () {
         const posts = this.state.posts.map(post => {
-            return <Post key={post.id} title={post.title} />
+            return <Post 
+                    key={post.id} 
+                    title={post.title} 
+                    author={post.author} 
+                    clicked={() => this.postClicked(post.id)} />
         })
         return (
             <div>
@@ -26,7 +44,7 @@ class Blog extends Component {
                     {posts}
                 </section>
                 <section>
-                    <FullPost />
+                    <FullPost id={this.state.selectedPostId} />
                 </section>
                 <section>
                     <NewPost />
