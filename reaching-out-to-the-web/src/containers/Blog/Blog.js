@@ -9,10 +9,11 @@ import post from '../../components/Post/Post';
 class Blog extends Component {
     state = {
         posts: [],
-        selectedPostId: null
+        selectedPostId: null,
+        error: false
     }
     componentDidMount() {
-        Axios.get('https://jsonplaceholder.typicode.com/posts')
+        Axios.get('https://jsonplaceholder.typicode.com/postss')
         .then(response => {
             const posts = response.data.slice(0, 4);
             console.log(posts);
@@ -23,7 +24,10 @@ class Blog extends Component {
                 }
             })
             this.setState({posts: updatedPosts})
-        });
+        })
+        .catch(error => {
+            this.setState({error: true});
+        })
     }
 
     postClicked = (id) => {
@@ -31,13 +35,20 @@ class Blog extends Component {
     }
 
     render () {
-        const posts = this.state.posts.map(post => {
-            return <Post 
-                    key={post.id} 
-                    title={post.title} 
-                    author={post.author} 
-                    clicked={() => this.postClicked(post.id)} />
-        })
+        let posts = 
+        <div style={{textAlign: "center", width: '250px', backgroundColor: "orange"}}>
+            <p style={{textAlign: "center"}}>Oh no..Something went very wrong...</p>
+        </div>
+        if(!this.state.error) {
+            posts = this.state.posts.map(post => {
+                return <Post 
+                        key={post.id} 
+                        title={post.title} 
+                        author={post.author} 
+                        clicked={() => this.postClicked(post.id)} />
+            })
+        }
+        
         return (
             <div>
                 <section className="Posts">
