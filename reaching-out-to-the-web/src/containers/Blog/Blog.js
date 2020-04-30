@@ -5,7 +5,6 @@ import Post from '../../components/Post/Post';
 import FullPost from '../../components/FullPost/FullPost';
 import NewPost from '../../components/NewPost/NewPost';
 import './Blog.css';
-import post from '../../components/Post/Post';
 
 class Blog extends Component {
     state = {
@@ -16,8 +15,7 @@ class Blog extends Component {
     componentDidMount() {
         Axios.get( '/posts' )
         .then(response => {
-            const posts = response.data.slice(0, 4);
-            console.log(posts);
+            const posts = response.data.slice(0, 5);
             const updatedPosts = posts.map(post => {
                 return {
                     ...post,

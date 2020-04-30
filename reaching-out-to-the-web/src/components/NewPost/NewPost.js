@@ -17,7 +17,6 @@ class NewPost extends Component {
         };
         Axios.post( '/posts', data )
             .then(response => {
-                console.log(response);
             })
     }
 
