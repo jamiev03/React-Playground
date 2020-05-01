@@ -96,7 +96,9 @@ class BurgerBuilder extends Component {
             },
             deliveryMethod: 'UltraFast'
         }
-        Axios.post('/orders.json');
+        Axios.post('/orders.json', order)
+        .then(response => console.log(response))
+        .catch(error => console.log(error));
     }
 
     render () {
